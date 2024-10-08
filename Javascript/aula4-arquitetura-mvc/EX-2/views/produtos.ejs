@@ -1,0 +1,17 @@
+<%- include ('partials/navbar.ejs')%>
+<%- include ('partials/header.ejs')%>
+    <h1>Conheça nossos produtos:</h1>
+    <!-- Tags EJS chamando a variavel que veio do index.js -->
+    <%= produto %>
+    <!--Condição para verificar se o produto nao foi passado-->
+    <% if (!produto) { %>
+        <p><%= listaProdutos %></p>
+    <% } %>
+
+    <!--Foreach para percorrer a lista de produtos-->
+    <% if(!produto) { %>
+        <% listaProdutos.forEach((produto) =>{ %>
+            <p><a href="/produtos/<%= produto %>"><%= produto %></a></p>
+        <% }) %>
+    <% } %>
+<%- include ('partials/footer.ejs')%>
